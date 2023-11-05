@@ -1,0 +1,57 @@
+class Shape {
+    public void draw() {
+        System.out.println("Drawing shape");
+    }
+
+    public double calculateArea() {
+            return 0.0;
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+
+    public double calculateArea() {
+        return 22/7 * radius * radius;
+    }
+}
+
+class Cylinder extends Shape {
+    private double radius;
+    private double height;
+
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    public void draw() {
+        System.out.println("Drawing a cylinder");
+    }
+
+    public double calculateArea() {
+        double AreaOne = 2 * Math.PI * radius * height;
+        double AreaTwo = 2 * Math.PI * radius * radius;
+        return AreaOne + AreaTwo;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5.0);
+        circle.draw();
+        System.out.println(circle.calculateArea());
+
+        Cylinder cylinder = new Cylinder(3.0, 4.0);
+        cylinder.draw();
+        System.out.println(cylinder.calculateArea());
+    }
+}
